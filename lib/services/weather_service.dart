@@ -18,10 +18,11 @@ class WeatherService {
     Uri url = Uri.parse('$baseUrl/api/location/$id');
     http.Response response = await http.get(url);
 
-    Map<String, dynamic> jsonData = jsonDecode(response.body);
-    Map<String, dynamic> data = jsonData["consolidated_weather"][0];
+    Map<String, dynamic> jsonData =
+        jsonDecode(response.body)["consolidated_weather"][0];
+    // Map<String, dynamic> data = jsonData["consolidated_weather"][0];
 
-    WeatherData weatherData = WeatherData.fromJson(data);
+    WeatherData weatherData = WeatherData.fromJson(jsonData);
 
     return weatherData;
   }
