@@ -21,8 +21,8 @@ class SearchScreen extends StatelessWidget {
               cityName = data;
               WeatherService service = WeatherService();
               WeatherData weather = await service.getWeather(cityName!);
-              Provider.of<WeatherProvider>(context, listen: false).weatherData =
-                  weather;
+              /*  Provider.of<WeatherProvider>(context, listen: false).weatherData =
+                  weather;*/
               Navigator.pop(context);
             },
             decoration: const InputDecoration(

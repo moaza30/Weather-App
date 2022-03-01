@@ -4,6 +4,7 @@ import 'package:weather_app/controllers/weather_provider.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/pages/search_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/services/weather_service.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,7 +13,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   WeatherData? weatherData;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +22,10 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Navigator.of(context).pushNamed(SearchScreen.routeName);
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           ),
         ],
-        title: Text('Weather App'),
+        title: const Text('Weather App'),
       ),
       body: (Provider.of<WeatherProvider>(context).weatherData == null)
           ? Center(
